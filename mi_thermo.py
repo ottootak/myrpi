@@ -4,7 +4,7 @@ import threading
 import time
 from dataclasses import dataclass
 from bluepy import btle
-import mydb
+from db_commands import insert_temperature
 
 adress = "A4:C1:38:2C:60:CE"
 pid = os.getpid()
@@ -35,7 +35,7 @@ class MyDelegate(btle.DefaultDelegate):
 			measurement.voltage = int.from_bytes(data[3:5], byteorder='little') / 1000
 			a = False
 			print("data prectena")
-			mydb.insert_temperature((measurement.temperature, measurement.humidity, measurement.voltage, "1"))
+			insert_temperature((measurement.temperature, measurement.humidity, measurement.voltage, "1"))
 		except Exception as e:
 			print("chyba v handlenotif")
 
