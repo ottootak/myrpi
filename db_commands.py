@@ -4,6 +4,19 @@ from sqlite3 import Error
 
 db_file = os.getcwd() + "/myData.db"
 
+def create_connection(db):
+    conn = None
+    try:
+        conn = sqlite3.connect(db)
+    except Error as e:
+        print(e)
+
+    return conn
+
+def close_connection(conn):
+    conn.commit()
+    conn.close()
+    
 def create_table_temperatures():
     conn = create_connection(db_file)
     cur = conn.cursor()
@@ -20,18 +33,13 @@ def create_table_temperatures():
     """
     cur.executescript(sql_command)
     conn = close_connection(conn)
+
+def insert_temperature(data):
+    conn = create_connection(db_file)
+    cur = conn.cursor()
+    cur.execute('INSERT INTO temperatures (temperature, humidity, battery, device) VALUES (?, ?, ?, ?)', data)
+    close_connection(conn)
         
 
-def create_connection(db):
-    conn = None
-    try:
-        conn = sqlite3.connect(db)
-    except Error as e:
-        print(e)
 
-    return conn
-
-def close_connection(conn):
-    conn.commit()
-    conn.close()
 
