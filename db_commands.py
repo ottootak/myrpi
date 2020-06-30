@@ -39,6 +39,26 @@ def insert_temperature(data):
     cur = conn.cursor()
     cur.execute('INSERT INTO temperatures (temperature, humidity, battery, device) VALUES (?, ?, ?, ?)', data)
     close_connection(conn)
+
+def select_last_temperature():
+    conn = create_connection(db_file)
+    cur = conn.cursor()
+    sql_command = """
+    select id
+    ,temperature
+    ,humidity
+    ,datetime(date, 'unixepoch', 'localtime') as localtime
+    ,device
+    ,battery
+    from temperatures
+    order by id
+    DESC LIMIT 1
+    ;
+    """
+    cur.execute(sql_command)
+    data = cur.fetchone()
+    close_connection(conn)
+    return data
         
 
 

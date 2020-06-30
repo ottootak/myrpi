@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}Home Page{% endblock %}
+{% block content %}
+<head></head>
+<form action="" method="get">
+	<p>
+		<button name="rf_button" type="submit" value="SILVERCREST_A_ON">A ON</button>
+		<button name="rf_button" type="submit" value="SILVERCREST_A_OFF">A OFF</button>
+	</p>
+	<p>
+		<button name="rf_button" type="submit" value="SILVERCREST_B_ON">B ON</button>
+		<button name="rf_button" type="submit" value="SILVERCREST_B_OFF">B OFF</button>
+	</p>
+	<p>
+		<button name="rf_button" type="submit" value="SILVERCREST_C_ON">C ON</button>
+		<button name="rf_button" type="submit" value="SILVERCREST_C_OFF">C OFF</button>
+	</p>
+	<p>
+		<button name="rf_button" type="submit" value="SILVERCREST_D_ON">D ON</button>
+		<button name="rf_button" type="submit" value="SILVERCREST_D_OFF">D OFF</button>
+	</p>
+	<p>
+		<button name="rf_button" type="submit" value="SILVERCREST_ALL_ON">ALL ON</button>
+		<button name="rf_button" type="submit" value="SILVERCREST_ALL_OFF">ALL OFF</button>
+	</p>
+	<p>
+		</br>
+		<button name="rf_button" type="submit" value="BOILER_ON">KOTEL ON</button>
+		<button name="rf_button" type="submit" value="BOILER_OFF">KOTEL OFF</button>
+	</p>
+	<p>
+		</br>
+		<button name="rf_button" type="submit" value="WELL_ON">STUDNA ON</button>
+		<button name="rf_button" type="submit" value="WELL_OFF">STUDNA OFF</button>
+	</p>
+<p>
+		</br>
+		<button name="wifi_button" type="submit" value="R2PC_ON">PC ON</button>
+	</p>
+
+
+</form>
+{{last_pressed}}
+{% endblock %}
