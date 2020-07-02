@@ -34,8 +34,9 @@ class MyDelegate(btle.DefaultDelegate):
 			measurement.humidity = int.from_bytes(data[2:3], byteorder='little')
 			measurement.voltage = int.from_bytes(data[3:5], byteorder='little') / 1000
 			a = False
-			print("data prectena")
-			insert_temperature((measurement.temperature, measurement.humidity, measurement.voltage, "1"))
+			print(measurement)
+			print("data prectena")			
+			insert_temperature((measurement.temperature, measurement.humidity, measurement.voltage,"1"))
 		except Exception as e:
 			print("chyba v handlenotif")
 

@@ -2,7 +2,7 @@ import os
 import sqlite3
 from sqlite3 import Error
 
-db_file = os.getcwd() + "/myData.db"
+db_file = "/home/pi/myrpi/myData.db"
 
 def create_connection(db):
     conn = None
